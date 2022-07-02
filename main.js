@@ -9,7 +9,7 @@ let colorPicker;
 function setup() {
   canvas = createCanvas(windowWidth*0.5, windowHeight*0.8);
   canvas.drop(gotFile); // ドラッグ＆ドロップされた画像を取得
-  frameRate(60); // randomで色がチカチカしすぎないよう、アニメーションの速度を下げる
+  frameRate(60); 
 
   pixelDensity(1); // 解像度を変えたい場合は、ここをいじる
   background(0);
@@ -68,12 +68,6 @@ function draw() {
       fill(255/2);
       rect(0, 0, width, height);
 
-      //new_canvas();
-
-
-      // canvasの大きさを画像の大きさに変更
-      //resizeCanvas(img.width, img.height);
-
       // スライダーの入力値に応じてパーティクルの大きさを決める
       let size = pixel_slider.value();
 
@@ -98,10 +92,6 @@ function draw() {
       stroke(line_color);
       strokeWeight(line_width);
       blendMode(BLEND);
-
-      // translate(width/2, height/2);
-      //rotateX(rotation);
-      //translate(-width/2, -height/2);
 
       for(let i = 0; i < 100; i++) {
         // ランダムな場所を選択して、色を画像から取得
@@ -199,20 +189,6 @@ function draw() {
         if (i % 5 == 0) {
           ellipse(random(width), random(height), diameterx, diametery);
         }
-
-        // random color
-        // colorMode(HSB, 255);
-        // blendMode(BLEND);
-        // let satu = saturation(col);
-        // fill(random(0, 100), satu);
-        // if (i % 5 == 0) {
-        //     ellipse(
-        //         location.x + random(-5, 5),
-        //         location.y + random(-5, 5),
-        //         diameter,
-        //         diameter
-        //     );
-        // }
       }
 
     }
@@ -241,8 +217,3 @@ function save_file() {
     saveCanvas("myImage", "png");
 }
 
-// function new_canvas() {
-//       fill(255 / 2);
-//       rect(0, 0, width, height);
-//       resizeCanvas(img.width, img.height);
-// }
